@@ -34,10 +34,10 @@ public class GridMap<T>
 
     public GridMap( int width, int height, Vector2 cellSize, Vector2 cellGap )
     {
-        this.Width = width;
-        this.Height = height;
-        this.CellGap = cellGap;
-        this.CellSize = cellSize;
+        this.Width      = width;
+        this.Height     = height;
+        this.CellGap    = cellGap;
+        this.CellSize   = cellSize;
 
         this._tileGrid = new T[width, height];
 
@@ -145,6 +145,12 @@ public class GridMap<T>
 
                         break;
 
+                    case RadiusShape.SQUARE:
+                        // The default behaviour already calculates all neighbors in a square, so you won't see the square shape
+                        // have any extra logic or implementation.
+
+                        break;
+
                 }
 
                 // If the tile wasn't out of bounds of the radius, and is in the map - add it to the list.
@@ -155,6 +161,17 @@ public class GridMap<T>
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Finds all tiles that are within the given radius around the world position.
+    /// </summary>
+    public IEnumerable<T> GetSurroundingTiles( Vector3 worldPosition, int radius, RadiusShape radiusShape )
+    {
+        Vector2Int positionToGrid = WorldToTilePosition( worldPosition );
+
+        return GetSurroundingTiles( positionToGrid.x, positionToGrid.y, radius, radiusShape );
+
     }
 
     /// <summary>
@@ -180,6 +197,4 @@ public class GridMap<T>
         return Mathf.Sqrt( xNeighborDistance + yNeighborDistance );
 
     }
-
-
 }

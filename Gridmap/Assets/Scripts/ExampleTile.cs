@@ -1,16 +1,14 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class ExampleTile
 {
-    public readonly Tilemap Tilemap;
+    public readonly Vector3 WorldPosition;
+    public readonly Vector3Int LocalPosition;
 
-    public readonly Vector2Int Position;
-
-    public ExampleTile( Tilemap tileMap, Vector2Int position )
+    public ExampleTile( Vector3 worldPosition, Vector3Int localPosition )
     {
-        this.Tilemap    = tileMap;
-        this.Position   = position;
+        this.WorldPosition = worldPosition;
+        this.LocalPosition = localPosition;
 
     }
 
