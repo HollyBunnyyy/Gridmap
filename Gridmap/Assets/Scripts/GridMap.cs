@@ -137,7 +137,7 @@ public class GridMap<T>
                         break;
 
                     case RadiusShape.CIRCLE:
-                        if( CalculateEuclideanDistance( xIndex, yIndex, xNeighborIndex, yNeighborIndex ) > radius )
+                        if( CalculateEuclideanDistance( xIndex, yIndex, xNeighborIndex, yNeighborIndex ) > radius + 0.41f )
                         {
                             continue;
 

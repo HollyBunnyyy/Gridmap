@@ -25,10 +25,23 @@ public class ExampleGrid : MonoBehaviour
             }
         }
 
-        foreach( ExampleTile tile in GridMap.GetSurroundingTiles( 3, 3, 3, RadiusShape.DIAMOND ) )
+        foreach( ExampleTile tile in GridMap.GetSurroundingTiles( 8, 8, 7, RadiusShape.CIRCLE ) )
         {
             _tileMap.SetColor( tile.LocalPosition + _tileMap.origin, Color.green );
 
         }
+
+        foreach( ExampleTile tile in GridMap.GetSurroundingTiles( 26, 8, 7, RadiusShape.DIAMOND ) )
+        {
+            _tileMap.SetColor( tile.LocalPosition + _tileMap.origin, Color.yellow );
+
+        }
+
+        foreach( ExampleTile tile in GridMap.GetSurroundingTiles( 44, 8, 7, RadiusShape.SQUARE ) )
+        {
+            _tileMap.SetColor( tile.LocalPosition + _tileMap.origin, Color.blue );
+
+        }
+
     }
 }
